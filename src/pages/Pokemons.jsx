@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export const Pokemons = () => {
   const [pokemon, setPokemon] = useState();
@@ -16,13 +16,18 @@ export const Pokemons = () => {
     pokedex();
   }, []);
 
+  // console.log(pokemon);
   return (
     <div>
       <h1>Pokedex!</h1>
       {!pokemon ? (
         <h1>"loading" </h1>
       ) : (
-        pokemon.map((pokemon) => <li key={pokemon.name}>{pokemon.name}</li>)
+        pokemon.map((pokemon) => (
+          <Link key={pokemon.name} to={`/discover/${pokemon.name}`}>
+            <li>{pokemon.name}</li>
+          </Link>
+        ))
       )}
     </div>
   );

@@ -8,8 +8,8 @@ function App() {
     <div className="App">
       <NavBar />
       <Routes>
-        <Route path="/discover" element={<DiscoverPage />} />
         <Route path="/pokemons" element={<Pokemons />} />
+        <Route path="/discover/:name" element={<DiscoverPage />} />
         <Route path="/" element={<HomePage />} />
       </Routes>
     </div>
